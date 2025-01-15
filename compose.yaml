@@ -1,0 +1,40 @@
+services:
+  node1:
+    image: "spark-ja:3.4.4"
+    hostname: node1
+    ports:
+      - 4040:4040
+      - 7070:7070
+      - 8080:8080
+    # command: >
+    #   sh -c "
+    #     /opt/spark/sbin/start-master.sh &&
+    #     /opt/spark/sbin/start-worker.sh spark://node1:7077
+    #   "
+  node2:
+    image: "spark-ja:3.4.4"
+    hostname: node2
+    depends_on:
+      - node1
+    # command: >
+    #   sh -c "
+    #     /opt/spark/sbin/start-worker.sh spark://node1:7077
+    #   "
+  node3:
+    image: "spark-ja:3.4.4"
+    hostname: node3
+    depends_on:
+      - node1
+    # command: >
+    #   sh -c "
+    #     /opt/spark/sbin/start-worker.sh spark://node1:7077
+    #   "
+  node4:
+    image: "spark-ja:3.4.4"
+    hostname: node4
+    depends_on:
+      - node1
+    # command: >
+    #   sh -c "
+    #     /opt/spark/sbin/start-worker.sh spark://node1:7077
+    #   "
