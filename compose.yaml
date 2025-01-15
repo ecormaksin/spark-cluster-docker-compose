@@ -6,6 +6,7 @@ services:
       - 4040:4040
       - 7070:7070
       - 8080:8080
+      - 18081:8081
     # command: >
     #   sh -c "
     #     /opt/spark/sbin/start-master.sh &&
@@ -16,6 +17,8 @@ services:
     hostname: node2
     depends_on:
       - node1
+    ports:
+      - 28081:8081
     # command: >
     #   sh -c "
     #     /opt/spark/sbin/start-worker.sh spark://node1:7077
@@ -25,6 +28,8 @@ services:
     hostname: node3
     depends_on:
       - node1
+    ports:
+      - 38081:8081
     # command: >
     #   sh -c "
     #     /opt/spark/sbin/start-worker.sh spark://node1:7077
@@ -34,6 +39,8 @@ services:
     hostname: node4
     depends_on:
       - node1
+    ports:
+      - 48081:8081
     # command: >
     #   sh -c "
     #     /opt/spark/sbin/start-worker.sh spark://node1:7077
